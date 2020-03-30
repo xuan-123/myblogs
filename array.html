@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+  font-family: 'iconfont';  /* project id 1456104 */
+  src: url('//at.alicdn.com/t/font_1456104_ownui67hhhc.eot');
+  src: url('//at.alicdn.com/t/font_1456104_ownui67hhhc.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1456104_ownui67hhhc.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1456104_ownui67hhhc.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1456104_ownui67hhhc.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1456104_ownui67hhhc.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        header{
+            height: 60px;
+            width: 100%;
+            box-shadow: 0 0 0.2px 0.5px ;
+        }
+        .top{
+            position: relative;
+            margin: 0 auto;
+            width: 60%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+        .top_left{
+            flex-grow: 1;
+        }
+        .top_center{
+            flex-grow: 5;
+        }
+        .top_right{
+            flex-grow: 2;
+            display: flex;
+        }
+       .top_left>img{
+           height: 50px;
+       }
+       .top_center>ul{
+           list-style: none;
+           display: flex;
+           justify-content: space-between;
+       }
+        .top_center>ul>li>a{
+            color: #000;
+        }
+        .top_right div{
+            width: 50%;
+            height: 100%;
+            text-align: center;
+            justify-content: space-around;
+         
+        }
+        .top_right>div>a{
+            color: #333;
+        }
+        nav{
+            width: 60%;
+            height: 40px;
+            margin: 0 auto;
+    
+            border-radius: 5px;
+            box-shadow: 0 5px 5px #ccc;
+            padding: 10px 0px;
+
+        }
+        #father{
+   
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 10px;  
+            margin-bottom: 10px;
+        }
+        .content{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .content div{
+           padding: 0px 0 20px 0;
+            width: 23%;
+
+        }
+        .page{
+            margin-top: 10px;
+            width: 200px;
+            margin:  0 auto;
+
+        }
+        .page ul{
+
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .page li{
+            list-style: none;
+            width: 20px;
+            height: 20px;
+               line-height:20px ;
+            border: 1px solid #000;
+             text-align: center;
+        }
+        a{  
+            width: 100%;
+            height: 100%;
+           
+         
+            text-decoration: none;
+        }
+        footer{
+            width: 100%;
+            height: 300px;
+            background-color: #fff;
+
+            margin-top: 10px;
+        }
+        .foot{
+            width: 60%;
+            height: 100%;
+            margin: 0 auto;
+            display:flex;
+            justify-content: space-between;
+        }
+        .foot div{
+            height: 100%;
+        }
+        .foot_left{
+           
+            width: 30%;
+            display: flex;
+            padding: 10px 20px;
+        }
+        .foot_center{
+            flex-grow: 5;
+        }
+        .foot_right{
+            flex-grow: 2;
+        }
+
+        nav ul{
+            display: flex;
+            justify-content: space-around;
+        }
+        nav ul li {
+            padding: 10px 15px;
+            border-radius: 10px;
+            list-style: none;
+            height: 100%;
+
+        }
+        nav ul li>a{
+            color: #000;
+        }
+        .active{
+            background-color: #ccc;
+        }
+        #father .content>.son>img{
+            width: 100%;
+        }
+        .foot_left>p{
+            width: 100%;
+
+        }
+        .cdan{
+            display: none;
+        }
+        .cdanblock ul{
+            width: 100%;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+        }
+        .cdanblock{
+            background-color: #fff;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right:0;
+            display: none;
+        }
+        /* pc端  */
+        @media screen and (min-width:960px){
+            .top{
+                min-width:960px
+            }
+            nav{
+                min-width: 960px;
+            }
+            #father{
+                min-width: 960px;
+            }
+        }
+        /* pad端样式  */
+            @media screen and (max-width:960px) and (min-width:750px){
+                .top{
+                    min-width: 750px;
+                }
+                .top_center,.top_right{
+                    display: none;
+                }
+                .cdan{
+                    display: block;
+                }
+                .cdan:hover>.cdanblock{
+                    display: block;
+                }
+
+                nav{
+                    min-width: 750px;
+                }
+                nav>ul{
+                    min-width: 750px;
+                 
+                }
+
+                #father{
+                    min-width: 750px;
+                }
+                #father>.content{
+                    flex-wrap: wrap;
+                }
+                #father>.content>.son{
+                    width: 46%;
+                }
+                
+            }
+        /* 移动端样式  */
+        @media screen and (max-width:750px){
+                .top_center,.top_right{
+                    display: none;
+                }
+                .cdan{
+                    display: block;
+                }
+                .cdan:hover>.cdanblock{
+                    display: block;
+                }
+                 nav{
+                    max-width: 750px;
+                    height: 100%;
+                }
+                nav>ul{
+                    max-width: 750px;
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                 #father{
+                    max-width: 750px;
+                }
+                #father>.content{
+                    flex-wrap: wrap;
+                }
+                #father>.content>.son{
+                    width: 100%;
+        
+                }
+               
+            }
+    </style>
+</head>
+<body>
+   <header>
+       <section class="top" > 
+            <section class="top_left">
+               <img src="./img/logo.jpg" alt="">
+            </section>
+            <section class="top_center">
+                <ul>
+                    <li><a href="">猿生态</a></li>
+                    <li><a href="">猿著</a></li>
+                    <li><a href="">猿创试题</a></li>
+                    <li><a href="">猿材料</a></li>
+                    <li><a href="">猿代码</a></li>
+                    <li><a href="">猿圈</a></li>
+                    <li><a href="">猿来如此</a></li>
+                </ul>
+            </section>
+            <section class="top_right">
+                <div><a href="">登录</a></div>
+                <div><a href="">注册</a></div>
+            </section>
+            <section class="cdan ">
+
+                    <p>菜单</p>
+                    <section class="cdanblock">
+                        <ul>
+                            <li><a href="">猿生态</a></li>
+                            <li><a href="">猿著</a></li>
+                            <li><a href="">猿创试题</a></li>
+                            <li><a href="">猿材料</a></li>
+                            <li><a href="">猿代码</a></li>
+                        </ul>
+                    </section>
+
+            </section>
+          
+       </section>
+   </header>
+   <nav>
+        <ul>
+            <li class="active"><a href="">全部</a></li>
+            <li><a href="">Java</a></li>
+            <li><a href="">Python</a></li>
+            <li><a href="">PHP</a></li>
+            <li><a href="">Go</a></li>
+            <li><a href="">大数据</a></li>
+            <li><a href="">前端</a></li>
+            <li><a href="">UI/UE</a></li>
+            <li><a href="">Linux</a></li>
+        </ul>
+   </nav>
+   <!-- 内容  -->
+   <section id="father">
+        <div class="content">
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+          
+        </div>
+        <div class="content">
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+        
+        </div>
+        <div class="content">
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+        
+        </div>
+        <div class="content">
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+            <div class="son">
+                <img src="./img/1.jpg" alt="">
+                <p>Python高级特性</p>
+                <span>2019-07-08</span>
+            </div>
+        
+        </div>
+   </section>
+   <!-- 分页 -->
+   <div class="page">
+       <ul>
+           <li><a href="">1</a></li>
+           <li><a href="">2</a></li>
+           <li><a href="">3</a></li>
+           <li><a href="">4</a></li>
+           <li><a href="">5</a></li>
+           <li><a href="">6</a></li>
+        <li><a href="">7</a></li>
+       </ul>
+   </div>
+   <!-- 底部 -->
+   <footer>
+       <div class="foot">
+           <div class="foot_left">
+               <p>
+                学习猿地根据IT方向的线上学习特点，研发人机互动教学系统， 打造领先的学习模式。平台签约了十名大牛联合创办， 每个合伙人再召集几名身边的技术大咖，根据程序员的岗位需求研发精品课程，并将一门学科中所需要的全部学习资料汇总在一起，
+                且实时更新。选中一门课程即拥有全部的精品学习资源，不需要再找其它资源补充， 按计划学习结束后即可直接从事对应的开发工作。
+               </p>
+           </div>
+           <div class="foot_center"></div>
+            <div class="foot_right"></div>
+       </div>
+   </footer>
+</body>
+</html>
